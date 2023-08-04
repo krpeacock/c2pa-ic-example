@@ -1,0 +1,30 @@
+{
+  "canisters": {
+    "c2pa_backend": {
+      "candid": "src/c2pa_backend/c2pa_backend.did",
+      "package": "c2pa_backend",
+      "type": "rust"
+    },
+    "c2pa_frontend": {
+      "dependencies": [
+        "c2pa_backend"
+      ],
+      "frontend": {
+        "entrypoint": "src/c2pa_frontend/src/index.html"
+      },
+      "source": [
+        "src/c2pa_frontend/assets",
+        "dist/c2pa_frontend/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
