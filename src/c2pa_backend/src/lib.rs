@@ -8,7 +8,7 @@ fn greet(name: String) -> String {
 #[ic_cdk::query]
 fn check_manifest() -> String {
     // load ./profile-authenticated.jpeg as bytes
-    let maybe_file = std::fs::read("../foo.jpeg");
+    let maybe_file = std::fs::read("../profile-authenticated.jpeg");
     if maybe_file.is_err() {
         return format!("Error reading file");
     }
