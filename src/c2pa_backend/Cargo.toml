@@ -9,6 +9,7 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
+c2pa = { version = "0.25.2", features = [] }
 candid = "0.8"
 ic-cdk = "0.7"
 ic-cdk-timers = "0.1" # Feel free to remove this dependency if you don't need timers
