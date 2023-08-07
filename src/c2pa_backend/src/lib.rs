@@ -6,17 +6,22 @@ fn greet(name: String) -> String {
 }
 
 #[ic_cdk::query]
-fn check_manifest() -> String {
-    // load ./profile-authenticated.jpeg as bytes
-    let maybe_file = std::fs::read("../profile-authenticated.jpeg");
-    if maybe_file.is_err() {
-        return format!("Error reading file");
-    }
+fn check_manifest(
+    format: String, 
+    image_bytes: Vec<u8>,
+    verify: bool
+) -> String {
+    // // load ./profile-authenticated.jpeg as bytes
+    // // let maybe_file = std::fs::read("../profile-authenticated.jpeg");
 
-    // convert result to &[u8]
-    let maybe_file = maybe_file.unwrap();
+    // if maybe_file.is_err() {
+    //     return format!("Error reading file");
+    // }
 
-    let ms = ManifestStore::from_bytes("image/jpeg", &maybe_file, true);
+    // // convert result to &[u8]
+    // let maybe_file = maybe_file.unwrap();
+
+    let ms = ManifestStore::from_bytes(&format, &image_bytes, verify);
 
     if let Ok(ms) = ms {
         return format!("{}", ms);
